@@ -2,52 +2,162 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Expense Tracker App</title>
-</head>
-<body>
-    <h1>Expense Tracker App</h1>
-    <div class="input-section">
-        <label for="category-select">Category:</label>
-        <select id="category-select">
-            <option value="Food & Beverage">Food & Beverage</option>
-            <option value="Rent">Rent</option>
-            <option value="Transport">Transport</option>
-            <option value="Relaxing">Relaxing</option>
-        </select>
-        <label for="amount-input">Amount:</label>
-        <input type="number" id="amount-input">
-        <label for="date-input">Date:</label>
-        <input type="date" id="date-input">
-        <button id="add-btn">Add</button>
-    </div>
-    <div class="expenses-list">
-        <h2><u>Expenses List</u></h2><br>
-        <br>
-        <table>
-            <thead>
-                <tr>
-                    <th>Category</th>
-                    <th>Amount</th>
-                    <th>Date</th>
-                    <th>Delete</th>
-                </tr>
-            </thead>
-            <tbody id="expnese-table-body">
 
-            </tbody>
-            <tfoot>
-                <tr>
-                    <td>Total Rupees :  </td>
-                    <td id="total-amount"></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-            </tfoot>
-        </table>
+    <title>Expense Tracker</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <header>
+            <div>
+                <p class="small-title">PERSONAL FINANCE</p>
+                <h1>Expense Tracker</h1>
+                <p class="subtitle">Keep track of where your money goes.</p>
+            </div>
+
+            <button id="theme-btn">🌙</button>
+        </header>
+
+
+        
+        <div class="total-card">
+            <div>
+                <p>Total Spending</p>
+                <h2>₹<span id="total-amount">0</span></h2>
+            </div>
+
+            <div class="money-icon">💰</div>
+        </div>
+
+
+       
+        <div class="expense-form">
+
+            <h2>Add New Expense</h2>
+
+            <div class="input-section">
+
+                <div class="input-box">
+                    <label for="category-select">Category</label>
+
+                    <select id="category-select">
+                        <option value="">Select category</option>
+                        <option value="Food & Beverage">🍔 Food & Beverage</option>
+                        <option value="Rent">🏠 Rent</option>
+                        <option value="Transport">🚗 Transport</option>
+                        <option value="Relaxing">🎮 Relaxing</option>
+                    </select>
+                </div>
+
+
+                <div class="input-box">
+                    <label for="amount-input">Amount</label>
+
+                    <input
+                        type="number"
+                        id="amount-input"
+                        placeholder="Enter amount"
+                        min="1"
+                    >
+                </div>
+
+
+                <div class="input-box">
+                    <label for="date-input">Date</label>
+
+                    <input type="date" id="date-input">
+                </div>
+
+
+                <button id="add-btn">+ Add Expense</button>
+
+            </div>
+
+            <p id="message"></p>
+
+        </div>
+
+
+        
+        <div class="summary">
+
+            <h2>Spending by Category</h2>
+
+            <div class="summary-cards">
+
+                <div class="summary-card">
+                    <span>🍔</span>
+                    <p>Food</p>
+                    <strong id="food-total">₹0</strong>
+                </div>
+
+                <div class="summary-card">
+                    <span>🏠</span>
+                    <p>Rent</p>
+                    <strong id="rent-total">₹0</strong>
+                </div>
+
+                <div class="summary-card">
+                    <span>🚗</span>
+                    <p>Transport</p>
+                    <strong id="transport-total">₹0</strong>
+                </div>
+
+                <div class="summary-card">
+                    <span>🎮</span>
+                    <p>Relaxing</p>
+                    <strong id="relaxing-total">₹0</strong>
+                </div>
+
+            </div>
+
+        </div>
+
+
+       
+        <div class="expenses-list">
+
+            <div class="list-heading">
+                <h2>Recent Expenses</h2>
+                <span id="expense-count">0 expenses</span>
+            </div>
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th>Category</th>
+                            <th>Amount</th>
+                            <th>Date</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="expense-table-body"></tbody>
+
+                </table>
+
+                <div id="empty-message">
+                    <div>🧾</div>
+                    <h3>No expenses yet</h3>
+                    <p>Add your first expense to start tracking.</p>
+                </div>
+
+            </div>
+
+        </div>
+
     </div>
+
     <script src="script.js"></script>
+
 </body>
 </html>
+
